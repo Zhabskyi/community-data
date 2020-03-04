@@ -31,7 +31,8 @@ npm test -- --coverage --watchAll=false
 ```
 ## Final Product
 
-Book an appointment:
+Final Product:
+
 !["Final product"](https://github.com/Zhabskyi/community-data/blob/master/src/static/Final_Product.png?raw=true)
 
 ## Client Dependencies
