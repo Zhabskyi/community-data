@@ -23,7 +23,9 @@ export const Communities = () => {
             />
           ))
         ) : (
-          <Spinner />
+          <div className={classes.spinner_container}>
+            <Spinner />
+          </div>
         )}
       </section>
     </>
