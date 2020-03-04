@@ -1,11 +1,13 @@
-import {
-  ACTION_TYPES,
-  Action,
-  AppContextInterface
-} from './types';
+import { ACTION_TYPES, Action, AppContextInterface } from './types';
 
+export const INITIAL_STATE: AppContextInterface = {
+  communities: [],
+  homes: [],
+  loading: true,
+  error: ''
+};
 
-export default (state: AppContextInterface, action: Action<any>) => {
+export const reducer = (state: AppContextInterface, action: Action<any>) => {
   switch (action.type) {
     case ACTION_TYPES.GET_COMMUNITIES:
       return {
@@ -16,6 +18,11 @@ export default (state: AppContextInterface, action: Action<any>) => {
       return {
         ...state,
         homes: action.payload
+      };
+    case ACTION_TYPES.SET_LOADING:
+      return {
+        ...state,
+        loading: !state.loading
       };
     case ACTION_TYPES.SET_ERROR:
       return {

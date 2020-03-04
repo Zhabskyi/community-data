@@ -1,16 +1,20 @@
 import React from 'react';
-import './App.scss';
-import { State } from './context/state';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import { Header } from './components/header/Header';
+import { Communities } from './components/communities/Communities';
 
 function App() {
   return (
-    <State>
+    <Router>
       <div className='container'>
         <Header />
+        <Switch>
+          <Route exact path='/' component={Communities} />
+          <Route exact path='/homes/:id'  />
+        </Switch>
       </div>
-    </State>
+    </Router>
   );
 }
 

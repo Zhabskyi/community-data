@@ -1,10 +1,3 @@
-export interface CommunitiesInterface {
-  id: string;
-  homnamees: string;
-  imgUrl: string;
-  group: string;
-}
-
 export interface HomesInterface {
   id: string;
   communityId: string;
