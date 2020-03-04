@@ -1,7 +1,12 @@
+@import '../../styles//core';
+
 .community {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
   align-items: stretch;
   grid-gap: 10px;
   margin: 20px;
+  @include xs {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
 }

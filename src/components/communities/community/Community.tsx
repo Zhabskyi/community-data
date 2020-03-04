@@ -1,15 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import classes from './Community.module.scss';
-import { useAppData } from '../../../hooks/useAppData';
 import { CommunitiesInterface } from '../../../models/communities';
 import { homeAveragePrice } from '../../../utils/helpers';
 
-export const Community = (props: CommunitiesInterface) => {
-  const { id, name, imgUrl, group } = props;
-  const { state } = useAppData();
+export const Community = (props: CommunitiesInterface | any) => {
+  const { id, name, imgUrl, group, state } = props;
 
-  let averagePrice:number = 0;
+  let averagePrice: number = 0;
 
   if (!state.loading) {
     averagePrice = homeAveragePrice(state, id);
@@ -18,15 +15,13 @@ export const Community = (props: CommunitiesInterface) => {
   return (
     <div className={classes.container}>
       <article className={classes.container__article}>
-        <Link className={classes.link} to={`homes/${id}`}>
-          <figure className={classes.container__article__figure}>
-            <img
-              src={imgUrl}
-              alt='community'
-              className={classes.container__article__figure_img}
-            />
-          </figure>
-        </Link>
+        <figure className={classes.container__article__figure}>
+          <img
+            src={imgUrl}
+            alt='community'
+            className={classes.container__article__figure_img}
+          />
+        </figure>
         <div className={classes.container__article__title}>
           <div className={classes.container__article__title_text}>{name}</div>
         </div>

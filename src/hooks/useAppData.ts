@@ -1,18 +1,31 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer } from 'react';
 import { axiosInstance } from '../utils/axiosInstance';
-import { ACTION_TYPES } from '../context/types';
-import { reducer } from '../context/reducer';
-import { INITIAL_STATE } from '../context/reducer';
+import { ACTION_TYPES } from '../store/actionTypes';
+import { CommunitiesInterface } from '../models/communities';
+import { reducer } from '../store/reducer';
+import { INITIAL_STATE } from '../store/reducer';
 
 export const useAppData = () => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
   useEffect(() => {
-    Promise.all([axiosInstance.get('/communities'), axiosInstance.get('/homes')])
+    Promise.all([
+      axiosInstance.get('/communities'),
+      axiosInstance.get('/homes')
+    ])
       .then(res => {
-        console.log('RESOPCE', res);
         const communities = res[0].data;
         const homes = res[1].data;
+
+        communities.sort((a: CommunitiesInterface, b: CommunitiesInterface) => {
+          if (a.name < b.name) {
+            return -1;
+          }
+          if (a.name > b.name) {
+            return 1;
+          }
+          return 0;
+        });
 
         dispatch({
           type: ACTION_TYPES.GET_COMMUNITIES,
@@ -34,8 +47,6 @@ export const useAppData = () => {
           payload: error.response
         });
       });
-    return () => {};
-    // eslint-disable-next-line
   }, []);
 
   return {

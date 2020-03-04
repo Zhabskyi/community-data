@@ -1,17 +1,11 @@
 import { CommunitiesInterface } from '../models/communities';
 import { HomesInterface } from '../models/homes';
-
-export enum ACTION_TYPES {
-  GET_COMMUNITIES = 'GET_COMMUNITIES',
-  GET_HOMES = 'GET_HOMES',
-  SET_LOADING ='SET_LOADING',
-  SET_ERROR = 'SET_ERROR'
-};
+import { ACTION_TYPES } from './actionTypes';
 
 export interface Action<T> {
   type: string;
   payload?: T;
-};
+}
 
 //State interface
 
@@ -21,6 +15,8 @@ export interface AppContextInterface {
   loading: boolean;
   error: string;
 }
+
+//Action interface
 
 export interface GetCommunitiesAction {
   type: typeof ACTION_TYPES.GET_COMMUNITIES;

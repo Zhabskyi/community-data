@@ -1,4 +1,5 @@
-import { ACTION_TYPES, Action, AppContextInterface } from './types';
+import { Action, AppContextInterface } from './types';
+import { ACTION_TYPES } from './actionTypes';
 
 export const INITIAL_STATE: AppContextInterface = {
   communities: [],
@@ -30,6 +31,8 @@ export const reducer = (state: AppContextInterface, action: Action<any>) => {
         error: action.payload
       };
     default:
-      return state;
+      throw new Error(
+        `Tried to reduce with unsupported action type: ${action.type}`
+      );
   }
 };

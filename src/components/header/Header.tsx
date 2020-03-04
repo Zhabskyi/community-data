@@ -6,8 +6,8 @@ export const Header = () => {
     <header className={classes.header}>
       <h3>LOGO</h3>
       <ul className={classes.header__list}>
-        <li>Item 1</li>
-        <li>Item 2</li>
+        <li>Features</li>
+        <li>Pricing</li>
         <li>About</li>
       </ul>
     </header>

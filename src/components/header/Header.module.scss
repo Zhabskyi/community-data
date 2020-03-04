@@ -5,8 +5,8 @@
   position: relative;
   background-color: $color-primary-light;
   font-size: $font-size-large;
-	display: flex;
-	justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
   max-width: 1600px;
   padding-top: 25px;
@@ -18,18 +18,12 @@
     color: $color-secondary-dark;
     display: flex;
     flex-direction: row;
-		justify-content: flex-end; 
-
-    &_add {
-      margin-right: 60px;
-      text-align: center;
-    }
-    &_myItems {
-      margin-right: 10px;
-      text-align: center;
+    justify-content: flex-end;
+    @include sm {
+      display: none;
     }
   }
-  & h3{
+  & h3 {
     padding-left: 20px;
   }
 }

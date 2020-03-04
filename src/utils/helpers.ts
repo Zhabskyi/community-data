@@ -1,4 +1,4 @@
-import { AppContextInterface } from '../context/types';
+import { AppContextInterface } from '../store/types';
 
 export const homeAveragePrice = (state:AppContextInterface, id:string ) => {
   const filteredHomes = state.homes.filter(item => item.communityId === id, []);
